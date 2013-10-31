@@ -47,7 +47,7 @@ int LinkedListIntAddFirst(LinkedListInt **list, Value *value)
 
 // Usuwa element z początku listy
 // ------------------------------
-int LinkedListIntRemoveFirst(LinkedListInt **list)
+void LinkedListIntRemoveFirst(LinkedListInt **list)
 {
 	LinkedListInt *tmpValue;
 	
@@ -65,6 +65,23 @@ int LinkedListIntRemoveFirst(LinkedListInt **list)
 			list[0] = tmpValue;
 		}
 	}
+}
+
+// Usuwa wszystkie elementy listy
+// ------------------------------
+void LinkedListIntClear(LinkedListInt **list)
+{
+	LinkedListInt *tmpValue = list[0];
+	LinkedListInt *toRemove;
+
+	while (tmpValue != NULL)
+	{
+		toRemove = tmpValue;
+		tmpValue = tmpValue -> next;
+		free(toRemove);
+	}
+
+	list[0] = NULL;
 }
 
 // Wyświetla zawartość listy
