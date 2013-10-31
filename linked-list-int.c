@@ -45,6 +45,28 @@ int LinkedListIntAddFirst(LinkedListInt **list, Value *value)
 	return result;
 }
 
+// Usuwa element z początku listy
+// ------------------------------
+int LinkedListIntRemoveFirst(LinkedListInt **list)
+{
+	LinkedListInt *tmpValue;
+	
+	if (list[0] != NULL)
+	{
+		if (list[0] -> next == NULL)
+		{
+			free(list[0]);
+			list[0] = NULL;
+		}
+		else
+		{
+			tmpValue = list[0] -> next;
+			free(list[0]);
+			list[0] = tmpValue;
+		}
+	}
+}
+
 // Wyświetla zawartość listy
 // -------------------------
 void LinkedListIntPrint(LinkedListInt **list)
