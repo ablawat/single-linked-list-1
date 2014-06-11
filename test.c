@@ -1,61 +1,56 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "value.h"
 #include "linked-list-int.h"
 
 int main()
 {
-    Value *value1 = malloc(sizeof(Value));
-    Value *value2 = malloc(sizeof(Value));
-    Value *value3 = malloc(sizeof(Value));
+    unsigned int value1 = 1;
+    unsigned int value2 = 2;
+    unsigned int value3 = 3;
     
-    value1 -> number = 1;
-    value2 -> number = 2;
-    value3 -> number = 3;
+    linked_list_uint_t **list = linked_list_uint_create();
     
-    LinkedListInt **list = LinkedListIntCreate();
-    
-    LinkedListIntPrint(list);
+    linked_list_uint_print(list);
     putchar(10);
     
-    LinkedListIntAddFirst(list, value1);
-    LinkedListIntPrint(list);
+    linked_list_uint_add_first(list, value1);
+    linked_list_uint_print(list);
     putchar(10);
     
-    LinkedListIntAddFirst(list, value2);
-    LinkedListIntPrint(list);
+    linked_list_uint_add_first(list, value2);
+    linked_list_uint_print(list);
     putchar(10);
     
-    LinkedListIntRemoveFirst(list);
-    LinkedListIntPrint(list);
+    linked_list_uint_remove_first(list);
+    linked_list_uint_print(list);
     putchar(10);
     
-    LinkedListIntAddFirst(list, value3);
-    LinkedListIntPrint(list);
+    linked_list_uint_add_first(list, value3);
+    linked_list_uint_print(list);
     putchar(10);
     
-    LinkedListIntRemoveFirst(list);
-    LinkedListIntPrint(list);
+    linked_list_uint_remove_first(list);
+    linked_list_uint_print(list);
     putchar(10);
     
-    LinkedListIntRemoveFirst(list);
-    LinkedListIntPrint(list);
+    linked_list_uint_remove_first(list);
+    linked_list_uint_print(list);
     putchar(10);
     
-    LinkedListIntAddFirst(list, value3);
-    LinkedListIntPrint(list);
+    linked_list_uint_add_first(list, value3);
+    linked_list_uint_print(list);
     putchar(10);
     
-    LinkedListIntAddFirst(list, value1);
-    LinkedListIntPrint(list);
+    linked_list_uint_add_first(list, value1);
+    linked_list_uint_print(list);
     putchar(10);
     
-    LinkedListIntClear(list);
-    LinkedListIntPrint(list);
+    linked_list_uint_clear(list);
+    linked_list_uint_print(list);
     putchar(10);
     
-    LinkedListIntAddFirst(list, value1);
-    LinkedListIntPrint(list);
+    linked_list_uint_add_first(list, value1);
+    linked_list_uint_print(list);
     putchar(10);
     
     return 0;
