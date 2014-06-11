@@ -79,28 +79,6 @@ int linked_list_uint_add_last(linked_list_uint_t **list, unsigned int value)
     return result;
 }
 
-// Usuwa element z początku listy
-// ------------------------------
-void linked_list_uint_remove_first(linked_list_uint_t **list)
-{
-    linked_list_uint_t *tmp_value;
-    
-    if (list[0] != NULL)
-    {
-        if (list[0] -> next == NULL)
-        {
-            free(list[0]);
-            list[0] = NULL;
-        }
-        else
-        {
-            tmp_value = list[0] -> next;
-            free(list[0]);
-            list[0] = tmp_value;
-        }
-    }
-}
-
 // Usuwa wszystkie elementy listy
 // ------------------------------
 void linked_list_uint_clear(linked_list_uint_t **list)

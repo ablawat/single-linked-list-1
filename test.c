@@ -17,23 +17,11 @@ int main()
     linked_list_uint_print(list);
     putchar(10);
     
-    linked_list_uint_add_first(list, value2);
+    linked_list_uint_add_last(list, value2);
     linked_list_uint_print(list);
     putchar(10);
     
-    linked_list_uint_remove_first(list);
-    linked_list_uint_print(list);
-    putchar(10);
-    
-    linked_list_uint_add_first(list, value3);
-    linked_list_uint_print(list);
-    putchar(10);
-    
-    linked_list_uint_remove_first(list);
-    linked_list_uint_print(list);
-    putchar(10);
-    
-    linked_list_uint_remove_first(list);
+    linked_list_uint_add_last(list, value3);
     linked_list_uint_print(list);
     putchar(10);
     
@@ -41,7 +29,7 @@ int main()
     linked_list_uint_print(list);
     putchar(10);
     
-    linked_list_uint_add_first(list, value1);
+    linked_list_uint_add_last(list, value1);
     linked_list_uint_print(list);
     putchar(10);
     
@@ -49,7 +37,11 @@ int main()
     linked_list_uint_print(list);
     putchar(10);
     
-    linked_list_uint_add_first(list, value1);
+    linked_list_uint_add_last(list, value1);
+    linked_list_uint_print(list);
+    putchar(10);
+    
+    linked_list_uint_add_first(list, value3);
     linked_list_uint_print(list);
     putchar(10);
     
