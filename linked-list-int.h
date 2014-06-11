@@ -11,6 +11,8 @@ linked_list_uint_t;
 linked_list_uint_t ** linked_list_uint_create();
 
 int   linked_list_uint_add_first     (linked_list_uint_t **list, unsigned int value);
+int   linked_list_uint_add_last      (linked_list_uint_t **list, unsigned int value);
+
 void  linked_list_uint_remove_first  (linked_list_uint_t **list);
 void  linked_list_uint_clear         (linked_list_uint_t **list);
 

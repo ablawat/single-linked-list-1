@@ -6,8 +6,9 @@
 // -------------------------
 linked_list_uint_t ** linked_list_uint_create()
 {
-    linked_list_uint_t **list = malloc(sizeof(linked_list_uint_t *));
+    linked_list_uint_t **list = malloc(sizeof(linked_list_uint_t *) * 2);
     list[0] = NULL;
+    list[1] = NULL;
     
     return list;
 }
@@ -27,11 +28,45 @@ int linked_list_uint_add_first(linked_list_uint_t **list, unsigned int value)
         {
             new_value -> next = NULL;
             list[0] = new_value;
+            list[1] = new_value;
         }
         else
         {
             new_value -> next = list[0];
             list[0] = new_value;
+        }
+        
+        result = 0;
+    }
+    else
+    {
+        result = -1;
+    }
+    
+    return result;
+}
+
+// Dodaje element na koniec listy
+// --------------------------------
+int linked_list_uint_add_last(linked_list_uint_t **list, unsigned int value)
+{
+    linked_list_uint_t *new_value = malloc(sizeof(linked_list_uint_t));
+    int result;
+    
+    if (new_value != NULL)
+    {
+        new_value -> value = value;
+        new_value -> next  = NULL;
+        
+        if (list[0] == NULL)
+        {
+            list[0] = new_value;
+            list[1] = new_value;
+        }
+        else
+        {
+            list[1] -> next = new_value;
+            list[1] = new_value;
         }
         
         result = 0;
