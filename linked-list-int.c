@@ -94,6 +94,7 @@ void linked_list_uint_clear(linked_list_uint_t **list)
     }
     
     list[0] = NULL;
+    list[1] = NULL;
 }
 
 // Wyświetla zawartość listy
