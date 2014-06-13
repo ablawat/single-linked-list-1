@@ -3,8 +3,8 @@
 
 typedef struct linked_list_uint
 {
-    unsigned int                 value;
-    struct linked_list_uint     *next;
+    unsigned int              value;
+    struct linked_list_uint  *next;
 }
 linked_list_uint_t;
 
