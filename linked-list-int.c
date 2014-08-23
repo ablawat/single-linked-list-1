@@ -4,9 +4,9 @@
 
 // Tworzy listę dowiązaniową
 // -------------------------
-linked_list_uint_t ** linked_list_uint_create()
+linked_list_int_t ** linked_list_int_create()
 {
-    linked_list_uint_t **list = malloc(sizeof(linked_list_uint_t *) * 2);
+    linked_list_int_t **list = malloc(sizeof(linked_list_int_t *) * 2);
     list[0] = NULL;
     list[1] = NULL;
     
@@ -15,9 +15,9 @@ linked_list_uint_t ** linked_list_uint_create()
 
 // Dodaje element na początek listy
 // --------------------------------
-int linked_list_uint_add_first(linked_list_uint_t **list, unsigned int value)
+int linked_list_int_add_first(linked_list_int_t **list, int value)
 {
-    linked_list_uint_t *new_value = malloc(sizeof(linked_list_uint_t));
+    linked_list_int_t *new_value = malloc(sizeof(linked_list_int_t));
     int result;
     
     if (new_value != NULL)
@@ -48,9 +48,9 @@ int linked_list_uint_add_first(linked_list_uint_t **list, unsigned int value)
 
 // Dodaje element na koniec listy
 // --------------------------------
-int linked_list_uint_add_last(linked_list_uint_t **list, unsigned int value)
+int linked_list_int_add_last(linked_list_int_t **list, int value)
 {
-    linked_list_uint_t *new_value = malloc(sizeof(linked_list_uint_t));
+    linked_list_int_t *new_value = malloc(sizeof(linked_list_int_t));
     int result;
     
     if (new_value != NULL)
@@ -81,10 +81,10 @@ int linked_list_uint_add_last(linked_list_uint_t **list, unsigned int value)
 
 // Usuwa wszystkie elementy listy
 // ------------------------------
-void linked_list_uint_clear(linked_list_uint_t **list)
+void linked_list_int_clear(linked_list_int_t **list)
 {
-    linked_list_uint_t *tmp_value = list[0];
-    linked_list_uint_t *to_remove;
+    linked_list_int_t *tmp_value = list[0];
+    linked_list_int_t *to_remove;
     
     while (tmp_value != NULL)
     {
@@ -99,9 +99,9 @@ void linked_list_uint_clear(linked_list_uint_t **list)
 
 // Wyświetla zawartość listy
 // -------------------------
-void linked_list_uint_print(linked_list_uint_t **list)
+void linked_list_int_print(linked_list_int_t **list)
 {
-    linked_list_uint_t *tmp_value = list[0];
+    linked_list_int_t *tmp_value = list[0];
     
     printf("L");
     

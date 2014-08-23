@@ -5,7 +5,7 @@
 
 void list_create_test()
 {
-    linked_list_uint_t **list = linked_list_uint_create();
+    linked_list_int_t **list = linked_list_int_create();
     
     assert(list[0] == NULL);
     assert(list[1] == NULL);
@@ -13,22 +13,22 @@ void list_create_test()
 
 void list_add_test()
 {
-    linked_list_uint_t **list;
+    linked_list_int_t **list;
     
-    unsigned int value1 = 1;
-    unsigned int value2 = 2;
+    int value1 = 1;
+    int value2 = 2;
     
     
-    list = linked_list_uint_create();
+    list = linked_list_int_create();
     
-    linked_list_uint_add_first(list, value1);
+    linked_list_int_add_first(list, value1);
     
     assert(list[0] == list[1]);
     assert(list[0] != NULL);
     assert(list[0] -> value == value1);
     assert(list[0] -> next  == NULL);
     
-    linked_list_uint_add_first(list, value2);
+    linked_list_int_add_first(list, value2);
     
     assert(list[0] != NULL);
     assert(list[1] != NULL);
@@ -40,16 +40,16 @@ void list_add_test()
     assert(list[1] -> next  == NULL);
     
     
-    list = linked_list_uint_create();
+    list = linked_list_int_create();
     
-    linked_list_uint_add_last(list, value1);
+    linked_list_int_add_last(list, value1);
     
     assert(list[0] == list[1]);
     assert(list[0] != NULL);
     assert(list[0] -> value == value1);
     assert(list[0] -> next  == NULL);
     
-    linked_list_uint_add_last(list, value2);
+    linked_list_int_add_last(list, value2);
     
     assert(list[0] != NULL);
     assert(list[1] != NULL);
