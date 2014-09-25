@@ -11,7 +11,7 @@ void list_create_test()
     assert(list[1] == NULL);
 }
 
-void list_add_test()
+void list_add_first_test()
 {
     linked_list_int_t **list;
     
@@ -38,6 +38,14 @@ void list_add_test()
     assert(list[0] -> next  == list[1]);
     assert(list[1] -> value == value1);
     assert(list[1] -> next  == NULL);
+}
+
+void list_add_last_test()
+{
+    linked_list_int_t **list;
+    
+    int value1 = 1;
+    int value2 = 2;
     
     
     list = linked_list_int_create();
@@ -64,7 +72,8 @@ void list_add_test()
 int main()
 {
     list_create_test();
-    list_add_test();
+    list_add_first_test();
+    list_add_last_test();
     
     return 0;
 }
