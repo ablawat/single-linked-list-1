@@ -15,10 +15,10 @@ linked_list_int_t ** linked_list_int_create()
 
 // Dodaje element na początek listy
 // --------------------------------
-int linked_list_int_add_first(linked_list_int_t **list, int value)
+int32_t linked_list_int_add_first(linked_list_int_t **list, int64_t value)
 {
     linked_list_int_t *new_item = malloc(sizeof(linked_list_int_t));
-    int result;
+    int32_t result;
     
     if (new_item != NULL)
     {
@@ -48,10 +48,10 @@ int linked_list_int_add_first(linked_list_int_t **list, int value)
 
 // Dodaje element na koniec listy
 // --------------------------------
-int linked_list_int_add_last(linked_list_int_t **list, int value)
+int32_t linked_list_int_add_last(linked_list_int_t **list, int64_t value)
 {
     linked_list_int_t *new_item = malloc(sizeof(linked_list_int_t));
-    int result;
+    int32_t result;
     
     if (new_item != NULL)
     {
@@ -108,7 +108,7 @@ void linked_list_int_print(linked_list_int_t **list)
     while (list_item != NULL)
     {
         printf("-|");
-        printf("%d", list_item -> value);
+        printf("%ld", list_item -> value);
         printf("|");
         
         list_item = list_item -> next;
