@@ -4,38 +4,46 @@
 
 // Tworzy listę dowiązaniową
 // -------------------------
-linked_list_int_t ** linked_list_int_create()
+linked_list_int_t * linked_list_int_create()
 {
-    linked_list_int_t **list = malloc(sizeof(linked_list_int_t *) * 2);
-    list[0] = NULL;
-    list[1] = NULL;
+    linked_list_int_t *list = malloc(sizeof(struct linked_list_int_head));
+    
+    if (list != NULL)
+    {
+        list -> count = 0;
+        
+        list -> node_first = NULL;
+        list -> node_last  = NULL;
+    }
     
     return list;
 }
 
 // Dodaje element na początek listy
 // --------------------------------
-int32_t linked_list_int_add_first(linked_list_int_t **list, int64_t value)
+int32_t linked_list_int_add_first(linked_list_int_t *list, int64_t value)
 {
-    linked_list_int_t *new_item = malloc(sizeof(linked_list_int_t));
+    linked_list_int_node_t *new_node = malloc(sizeof(linked_list_int_node_t));
     int32_t result;
     
-    if (new_item != NULL)
+    if (new_node != NULL)
     {
-        new_item -> value = value;
+        new_node -> value = value;
         
-        if (list[0] == NULL)
+        if (list -> node_first == NULL)
         {
-            new_item -> next = NULL;
-            list[0] = new_item;
-            list[1] = new_item;
+            new_node -> next = NULL;
+            
+            list -> node_first = new_node;
+            list -> node_last  = new_node;
         }
         else
         {
-            new_item -> next = list[0];
-            list[0] = new_item;
+            new_node -> next = list -> node_first;
+            list -> node_first = new_node;
         }
         
+        list -> count += 1;
         result = 0;
     }
     else
@@ -48,27 +56,28 @@ int32_t linked_list_int_add_first(linked_list_int_t **list, int64_t value)
 
 // Dodaje element na koniec listy
 // --------------------------------
-int32_t linked_list_int_add_last(linked_list_int_t **list, int64_t value)
+int32_t linked_list_int_add_last(linked_list_int_t *list, int64_t value)
 {
-    linked_list_int_t *new_item = malloc(sizeof(linked_list_int_t));
+    linked_list_int_node_t *new_node = malloc(sizeof(linked_list_int_node_t));
     int32_t result;
     
-    if (new_item != NULL)
+    if (new_node != NULL)
     {
-        new_item -> value = value;
-        new_item -> next  = NULL;
+        new_node -> value = value;
+        new_node -> next  = NULL;
         
-        if (list[0] == NULL)
+        if (list -> node_first == NULL)
         {
-            list[0] = new_item;
-            list[1] = new_item;
+            list -> node_first = new_node;
+            list -> node_last  = new_node;
         }
         else
         {
-            list[1] -> next = new_item;
-            list[1] = new_item;
+            list -> node_last -> next = new_node;
+            list -> node_last = new_node;
         }
         
+        list -> count += 1;
         result = 0;
     }
     else
@@ -81,36 +90,38 @@ int32_t linked_list_int_add_last(linked_list_int_t **list, int64_t value)
 
 // Usuwa wszystkie elementy listy
 // ------------------------------
-void linked_list_int_clear(linked_list_int_t **list)
+void linked_list_int_clear(linked_list_int_t *list)
 {
-    linked_list_int_t *list_item = list[0];
-    linked_list_int_t *to_remove;
+    linked_list_int_node_t *list_node = list -> node_first;
+    linked_list_int_node_t *to_remove;
     
-    while (list_item != NULL)
+    while (list_node != NULL)
     {
-        to_remove = list_item;
-        list_item = list_item -> next;
+        to_remove = list_node;
+        list_node = list_node -> next;
         free(to_remove);
     }
     
-    list[0] = NULL;
-    list[1] = NULL;
+    list -> count = 0;
+    
+    list -> node_first = NULL;
+    list -> node_last  = NULL;
 }
 
 // Wyświetla zawartość listy
 // -------------------------
-void linked_list_int_print(linked_list_int_t **list)
+void linked_list_int_print(linked_list_int_t *list)
 {
-    linked_list_int_t *list_item = list[0];
+    linked_list_int_node_t *list_node = list -> node_first;
     
     printf("L");
     
-    while (list_item != NULL)
+    while (list_node != NULL)
     {
         printf("-|");
-        printf("%ld", list_item -> value);
+        printf("%ld", list_node -> value);
         printf("|");
         
-        list_item = list_item -> next;
+        list_node = list_node -> next;
     }
 }
